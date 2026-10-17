@@ -75,11 +75,13 @@ Jedes Notebook ist knapp gerahmt, damit es nicht überladen wirkt.
   - Ausnahme: `02 - Creating a Pydantic Model` enthält ein kleines Praxisbeispiel am Ende, weil das `Project` erst am Kapitelende folgt.
 - **Zusammenfassung am Ende:** Die letzte Markdown-Zelle fasst die wichtigsten Punkte in drei bis fünf Stichpunkten zusammen. Optional folgt ein Verweis auf das nächste Notebook oder auf die Pydantic-Dokumentation.
 
-### Erklärzellen zu Code
-- Zu Code-Zellen gehört eine Markdown-Zelle, die mit **„Was der Code macht:“** beginnt. Sie steht direkt **über** der Code-Zelle, die sie erklärt.
-  - Sie erklärt, was der Code tut, und nennt das Warum nur bei Schlüsselstellen (Validierungsreihenfolge, Coercion, Fehlerverhalten, Rückgabewerte). Sie wiederholt nicht bloß die Ausgabe.
-  - Länge richtet sich nach dem Inhalt: bei einfachem Code ein bis vier Sätze, bei Abläufen eine nummerierte Liste oder eine Tabelle.
-  - Die Erklärung steht eingeklappt in einem `<details>`-Block (`<summary>Erklärung anzeigen</summary>`, danach eine Leerzeile, dann der Text), damit zuerst selbst nachgedacht werden kann:
+### Erklärungen zu Code
+- Einfache Erklärungen stehen als **Inline-Kommentare** (`#`) direkt in der Code-Zelle, nicht in einer eigenen Markdown-Zelle. Das spart Platz.
+  - Ein Kommentar steht über der Zeile oder am Zeilenende und umfasst ein bis zwei Sätze („`type(...)` bestätigt: Das Ergebnis ist ein gewöhnliches `dict`.“).
+  - Er klingt wie ein kurzer Satz in einem Tutorial, nicht wie ein Etikett: Er sagt, was die Zeile zeigt oder bestätigt, und bindet das Warum bei Schlüsselstellen (Validierungsreihenfolge, Coercion, Fehlerverhalten, Rückgabewerte) in den Satz ein, etwa „`print` gibt echte Zeilenumbrüche aus, sonst stünde `\n` im Text.“
+  - Starre Muster wie „Warum: …“, „Hinweis: …“ oder „Ergebnis: …“ am Kommentaranfang entfallen, ebenso das Präfix „Was der Code macht:“. Ein Kommentar wiederholt auch nicht bloß die Ausgabe.
+  - Kommentare verraten keine Antwort auf eine Vorhersagefrage. Die Auflösung steht dann in der `<details>`-Zelle (siehe unten).
+- Bei komplexen Abläufen (mehrere Schritte, Tabelle nötig), bei Auflösungen von Vorhersagefragen und bei Zwischenfazits („Kurz gesagt: …“) steht weiterhin eine Markdown-Zelle direkt **über** der Code-Zelle. Sie beginnt mit **„Was der Code macht:“** und steht eingeklappt in einem `<details>`-Block (`<summary>Erklärung anzeigen</summary>`, danach eine Leerzeile, dann der Text), damit zuerst selbst nachgedacht werden kann:
 
     ```
     <details>
@@ -88,7 +90,8 @@ Jedes Notebook ist knapp gerahmt, damit es nicht überladen wirkt.
     **Was der Code macht:** …
     </details>
     ```
-  - Bei Schlüsselstellen (z. B. Coercion vs. Strict Mode, Reihenfolge von `before`/`after`-Validatoren, Alias bei Input vs. Output, Mutation vs. Revalidierung, `model_dump` mit `exclude_unset`) steht vor der Code-Zelle eine kurze Vorhersagefrage („Was gibt das aus?“). Sie steht entweder am Ende der einleitenden Markdown-Zelle des Abschnitts (als **„Vorhersage:“**) oder in einer eigenen Markdown-Zelle.
+- Bei Schlüsselstellen (z. B. Coercion vs. Strict Mode, Reihenfolge von `before`/`after`-Validatoren, Alias bei Input vs. Output, Mutation vs. Revalidierung, `model_dump` mit `exclude_unset`) steht vor der Code-Zelle eine kurze Vorhersagefrage („Was gibt das aus?“). Sie steht entweder am Ende der einleitenden Markdown-Zelle des Abschnitts (als **„Vorhersage:“**) oder in einer eigenen Markdown-Zelle.
+- Der Fließtext in den Markdown-Zellen bleibt gesprächig und in zusammenhängender Prosa (siehe Erklärstil). Durch die Inline-Kommentare wird er nicht knapper: Motivationsfragen, Überleitungen und Zwischenfazits tragen weiter den Erzählfluss.
 
 ### Technik
 - Nur den Text ändern, nicht die Struktur: Zell-IDs, Metadaten, Outputs und das JSON-Format (Einrückung, Zeilenumbrüche) bleiben erhalten, damit der Git-Diff minimal ist. Neue Zellen (Vorhersagefragen) bekommen eine eigene `id`.
