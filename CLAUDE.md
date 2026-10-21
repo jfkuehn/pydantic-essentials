@@ -44,7 +44,7 @@ Verweise auf das nächste Notebook folgen dieser Reihenfolge (z. B. nach `03 - D
   - Include both what works and what fails (`try`/`except ValidationError`).
   - Use the Pydantic v2 API only (`model_dump`, `model_validate`, `field_validator`, `ConfigDict` …), no deprecated v1 names (`.dict()`, `@validator`, `class Config`).
   - Access `model_fields` and `model_computed_fields` on the class, not on an instance (deprecated since Pydantic 2.11, removed in V3).
-- Notebooks are committed **with** outputs (no nbstripout in this repo).
+- Notebooks are committed **without** outputs: `nbstripout` (dev dependency) entfernt sie beim Commit als Git-Filter. Einmalig pro Klon einrichten mit `uv run nbstripout --install`; lokal bleiben die Outputs im Notebook erhalten.
 
 ## Styleguide für Lehr-Notebooks und Dokumentation (Deutsch)
 

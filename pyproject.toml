@@ -11,3 +11,8 @@ dependencies = [
     "ipykernel>=7.4.0",
     "pydantic>=2.14.1",
 ]
+
+[dependency-groups]
+dev = [
+    "nbstripout>=0.9.1",
+]
