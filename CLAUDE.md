@@ -18,7 +18,7 @@ jupyter notebook            # run notebooks (alternativ: Kernel in PyCharm/VS Co
 
 ## Repository Structure
 
-Chapter directories in `src/` (Namen und Reihenfolge folgen dem Original-Kurs, `fbaptiste/pydantic-essentials` auf GitHub). Notebooks heißen `NN - Titel.ipynb`; die Nummerierung beginnt in jedem Kapitel bei `02`. Lokal vorhanden sind bisher nur `02 - Creating a Pydantic Model` und `03 - Deserialization`; die übrigen Notebooks sind im Original-Kurs vorgesehen:
+Chapter directories in `src/` (Namen und Reihenfolge folgen dem Original-Kurs, `fbaptiste/pydantic-essentials` auf GitHub). Notebooks heißen `NN - Titel.ipynb`; die Nummerierung beginnt in jedem Kapitel bei `02`. Lokal vorhanden ist bisher das komplette Kapitel `02 - Basics` (Notebooks 02 bis 12) sowie aus `03 - Model Configuration` das Notebook `02 - Handling Extra Fields`; die übrigen Notebooks sind im Original-Kurs vorgesehen:
 
 | Kapitel | Notebooks (Original-Kurs) |
 |---|---|
